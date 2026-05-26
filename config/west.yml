@@ -4,6 +4,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: urob
       url-base: https://github.com/urob
+    - name: furugo-dev
+      url-base: https://github.com/furugo-dev
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -11,6 +13,9 @@ manifest:
       import: app/west.yml
     - name: zmk-helpers
       remote: urob
+      revision: main
+    - name: zmk-naginata-v17
+      remote: furugo-dev
       revision: main
   self:
     path: config
