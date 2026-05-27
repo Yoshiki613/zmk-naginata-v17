@@ -15,6 +15,8 @@
 #include <zmk/events/keycode_state_changed.h>
 #include <zmk/behavior.h>
 
+#include <dt-bindings/zmk/keys.h>
+
 #include <zmk_naginata/nglist.h>
 #include <zmk_naginata/nglistarray.h>
 #include <zmk_naginata/naginata_func.h>
@@ -120,7 +122,7 @@ static naginata_kanamap ngdickana[] = {
     {.shift = NONE    , .douji = B_V            , .kana = {K, O, NONE, NONE, NONE, NONE   }, .func = nofunc }, // こ
     {.shift = B_SPACE , .douji = B_U            , .kana = {S, A, NONE, NONE, NONE, NONE   }, .func = nofunc }, // さ
     {.shift = NONE    , .douji = B_R            , .kana = {S, I, NONE, NONE, NONE, NONE   }, .func = nofunc }, // し
-    {.shift = NONE    , .douji = B_O            , .kana = {S, U, NONE, NONE, NONE, NONE   }, .func = nofunc }, // す
+    {.shift = NONE    , .douji = B_O            , .kana = {UP, NONE, NONE, NONE, NONE, NONE   }, .func = nofunc }, // ↑（親指シフト等で他文字）
     {.shift = B_SPACE , .douji = B_A            , .kana = {S, E, NONE, NONE, NONE, NONE   }, .func = nofunc }, // せ
     {.shift = NONE    , .douji = B_B            , .kana = {S, O, NONE, NONE, NONE, NONE   }, .func = nofunc }, // そ
     {.shift = NONE    , .douji = B_N            , .kana = {T, A, NONE, NONE, NONE, NONE   }, .func = nofunc }, // た
@@ -283,7 +285,7 @@ static naginata_kanamap ngdickana[] = {
     {.shift = B_SPACE , .douji = B_V            , .kana = {COMMA, ENTER, NONE, NONE, NONE, NONE }, .func = nofunc },
     {.shift = NONE    , .douji = B_Q            , .kana = {NONE, NONE, NONE, NONE, NONE, NONE   }, .func = nofunc },
     {.shift = B_SPACE , .douji = B_M            , .kana = {DOT, ENTER, NONE, NONE, NONE, NONE   }, .func = nofunc },
-    {.shift = NONE , .douji = B_U            , .kana = {S, A, NONE, NONE, NONE, NONE   }, .func = nofunc }, // さ
+    {.shift = NONE    , .douji = B_U            , .kana = {DOWN, NONE, NONE, NONE, NONE, NONE  }, .func = nofunc }, // ↓（親指シフト+Uでさ）
 
     {.shift = NONE    , .douji = B_V|B_M        , .kana = {ENTER, NONE, NONE, NONE, NONE, NONE  }, .func = nofunc}, // enter
     // {.shift = B_SPACE, .douji = B_V|B_M, .kana = {ENTER, NONE, NONE, NONE, NONE, NONE}, .func = nofunc}, // enter+シフト(連続シフト)
