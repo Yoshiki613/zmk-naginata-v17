@@ -165,13 +165,13 @@ void input_unicode_hex(int n1, int n2, int n3, int n4) {
 }
 
 void ng_T() {
-    if (arrow_held_key == LEFT) return;
-    ng_left(1);
+    if (arrow_held_key == DOWN) return;
+    ng_down(1);
 }
 
 void ng_Y() {
-    if (arrow_held_key == RIGHT) return;
-    ng_right(1);
+    if (arrow_held_key == UP) return;
+    ng_up(1);
 }
 
 void ng_ST() {

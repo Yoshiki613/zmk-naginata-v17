@@ -152,7 +152,7 @@ static naginata_kanamap ngdickana[] = {
     {.shift = B_SPACE , .douji = B_I            , .kana = {Y, O, NONE, NONE, NONE, NONE   }, .func = nofunc }, // よ
     {.shift = NONE    , .douji = B_DOT          , .kana = {R, A, NONE, NONE, NONE, NONE   }, .func = nofunc }, // ら
     {.shift = B_SPACE , .douji = B_E            , .kana = {R, I, NONE, NONE, NONE, NONE   }, .func = nofunc }, // り
-    {.shift = NONE    , .douji = B_I            , .kana = {R, U, NONE, NONE, NONE, NONE   }, .func = nofunc }, // る
+    {.shift = NONE    , .douji = B_I            , .kana = {S, U, NONE, NONE, NONE, NONE   }, .func = nofunc }, // す
     {.shift = NONE    , .douji = B_SLASH        , .kana = {R, E, NONE, NONE, NONE, NONE   }, .func = nofunc }, // れ
     {.shift = B_SPACE , .douji = B_SLASH        , .kana = {R, E, NONE, NONE, NONE, NONE   }, .func = nofunc }, // れ
     {.shift = NONE    , .douji = B_A            , .kana = {R, O, NONE, NONE, NONE, NONE   }, .func = nofunc }, // ろ
@@ -285,7 +285,7 @@ static naginata_kanamap ngdickana[] = {
     {.shift = B_SPACE , .douji = B_V            , .kana = {COMMA, ENTER, NONE, NONE, NONE, NONE }, .func = nofunc },
     {.shift = NONE    , .douji = B_Q            , .kana = {NONE, NONE, NONE, NONE, NONE, NONE   }, .func = nofunc },
     {.shift = B_SPACE , .douji = B_M            , .kana = {DOT, ENTER, NONE, NONE, NONE, NONE   }, .func = nofunc },
-    {.shift = NONE    , .douji = B_U            , .kana = {DOWN, NONE, NONE, NONE, NONE, NONE  }, .func = nofunc }, // ↓（親指シフト+Uでさ）
+    {.shift = NONE    , .douji = B_U            , .kana = {BSPC, NONE, NONE, NONE, NONE, NONE  }, .func = nofunc }, // BackSpace（親指シフト+Uでさ）
 
     {.shift = NONE    , .douji = B_V|B_M        , .kana = {ENTER, NONE, NONE, NONE, NONE, NONE  }, .func = nofunc}, // enter
     // {.shift = B_SPACE, .douji = B_V|B_M, .kana = {ENTER, NONE, NONE, NONE, NONE, NONE}, .func = nofunc}, // enter+シフト(連続シフト)
@@ -539,17 +539,17 @@ bool naginata_press(struct zmk_behavior_binding *binding, struct zmk_behavior_bi
         // T/Y単独またはSpace+T/Y：矢印キーをeager press+releaseしてタイマーリピート開始
         if (keycode == T && pressed_keys == B_T) {
             if (arrow_held_key == 0) {
-                raise_zmk_keycode_state_changed_from_encoded(LEFT, true, timestamp);
-                raise_zmk_keycode_state_changed_from_encoded(LEFT, false, timestamp);
-                arrow_held_key = LEFT;
+                raise_zmk_keycode_state_changed_from_encoded(DOWN, true, timestamp);
+                raise_zmk_keycode_state_changed_from_encoded(DOWN, false, timestamp);
+                arrow_held_key = DOWN;
                 arrow_held_shift = false;
                 k_work_schedule(&arrow_repeat_work, K_MSEC(ARROW_REPEAT_DELAY_MS));
             }
         } else if (keycode == Y && pressed_keys == B_Y) {
             if (arrow_held_key == 0) {
-                raise_zmk_keycode_state_changed_from_encoded(RIGHT, true, timestamp);
-                raise_zmk_keycode_state_changed_from_encoded(RIGHT, false, timestamp);
-                arrow_held_key = RIGHT;
+                raise_zmk_keycode_state_changed_from_encoded(UP, true, timestamp);
+                raise_zmk_keycode_state_changed_from_encoded(UP, false, timestamp);
+                arrow_held_key = UP;
                 arrow_held_shift = false;
                 k_work_schedule(&arrow_repeat_work, K_MSEC(ARROW_REPEAT_DELAY_MS));
             }
